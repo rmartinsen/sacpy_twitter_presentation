@@ -6,7 +6,7 @@ from db import save_tweet_to_db
 from tweet_settings import ACCESS_TOKEN, ACCESS_SECRET, CONSUMER_KEY, CONSUMER_SECRET
 
 
-keywords = ["rob"]
+keywords = ["cat"]
 
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 auth.set_access_token(ACCESS_TOKEN, ACCESS_SECRET)
@@ -23,5 +23,3 @@ class TweetListener(StreamListener):
 
 twitter_stream = tweepy.Stream(auth, TweetListener())
 twitter_stream.filter(track=keywords)
-
-
