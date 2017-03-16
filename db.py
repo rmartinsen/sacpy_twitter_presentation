@@ -16,9 +16,9 @@ def save_tweet_to_db(tweet):
     tweet_dict = json.loads(tweet)
 
     if "text" in tweet_dict.keys():
-        tweet_user = tweet_dict["user"]["screen_name"].encode("utf-8")
-        tweet_text = tweet_dict["text"].encode("utf-8")
-        sentiment = classify_sentiment(tweet_text.decode("utf-8"))
+        tweet_user = tweet_dict["user"]["screen_name"]
+        tweet_text = tweet_dict["text"]
+        sentiment = classify_sentiment(tweet_text)
 
         sql = "insert into tweets(user, tweet_text, sentiment) values(%s, %s, %s)"
 
